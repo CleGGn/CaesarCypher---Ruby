@@ -5,9 +5,11 @@ class Test
     alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     array_length = (alphabet.length-1)
     plain_text.each_char do |character|
+      # is it a letter ?
       if alphabet.include?(character.downcase)
         initial_pos = alphabet.index(character.downcase) 
         new_pos = initial_pos + shift_position
+        
         # Are we positionned past the array length ? if yes we loop to start over
         if new_pos > array_length
           new_pos = ((initial_pos-1) - array_length) + shift_position
@@ -21,6 +23,7 @@ class Test
           code.concat(replacement_letter)
         end
       else
+        # if it's a special character we're not touching it
         code.concat(character)
       end
     end
@@ -31,7 +34,6 @@ end
 test = Test.new
 
 puts test.caesar_cipher("Hello, how are you ?", 1)
-
 puts test.caesar_cipher("C'est l'histoire de la vie, le cycle eternel", 7)
 
 
