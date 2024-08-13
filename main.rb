@@ -9,7 +9,7 @@ class Test
       if alphabet.include?(character.downcase)
         initial_pos = alphabet.index(character.downcase) 
         new_pos = initial_pos + shift_position
-        
+
         # Are we positionned past the array length ? if yes we loop to start over
         if new_pos > array_length
           new_pos = ((initial_pos-1) - array_length) + shift_position
@@ -34,6 +34,10 @@ end
 test = Test.new
 
 puts test.caesar_cipher("Hello, how are you ?", 1)
+# return "Ifmmp, ipx bsf zpv ?"
 puts test.caesar_cipher("C'est l'histoire de la vie, le cycle eternel", 7)
+# return "J'lza s'opzavpyl kl sh cpl, sl jfjsl lalyuls"
+puts test.caesar_cipher("This is the rythm of the night", -2)
+# return "Rfgq gq rfc pwrfk md rfc lgefr"
 
 
